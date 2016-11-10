@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.mapper.ArticleMapper">
+
+	 <resultMap id="BaseResultMap" type="com.blog.entity.Article" >
+        <result column="articleid" property="articleid" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="titlepicpath" property="titlepicpath" jdbcType="VARCHAR" />
+        <result column="messagetype" property="messagetype" jdbcType="INTEGER" />
+        <result column="status" property="Status" jdbcType="INTEGER" />
+        <result column="seq" property="Seq" jdbcType="INTEGER" />
+        <result column="CreateTime" property="CreateTime" jdbcType="TIMESTAMP" />
+        <result column="UpdateTime" property="UpdateTime" jdbcType="TIMESTAMP" />
+       <collection property="mtype" javaType="java.util.List" ofType="com.blog.entity.MessageType">
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="num" property="num" jdbcType="INTEGER" />
+            <result column="pnum" property="pnum" jdbcType="INTEGER" />
+            <result column="name" property="name" jdbcType="VARCHAR" />
+        </collection>
+    </resultMap>
+
+	<sql id="Article">
+	 	articleid,title,content,titlepicpath,messagetype,createtime
+	</sql>
+	
+	<select id="showArticle" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select *
+		from t_pm_article a
+		left join t_messagetype m
+		on a.messagetype = m.num
+	</select>
+	
+	<select id="showLatestArticle" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select *
+		from t_pm_article a
+		left join t_messagetype m
+		on a.messagetype = m.num
+		GROUP by a.messagetype
+	</select>
+	
+	<select id="showArticleBytype" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select *
+		from t_pm_article a
+		left join t_messagetype m
+		on a.messagetype = m.num
+		where a.messagetype = #{mtype,jdbcType= VARCHAR}
+	</select>
+	
+	<select id="showDetail" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select 
+		<include refid="Article"/>
+		from t_pm_article where articleid = #{id,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>	

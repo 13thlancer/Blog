@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.mapper.UserMapper">
+
+	<resultMap id="BaseResultMap" type="com.blog.entity.User">
+		<result column="userid" property="userid" jdbcType="VARCHAR"/>
+		<result column="YZJID" property="YZJID" jdbcType="VARCHAR"/>
+		<result column="telphone" property="telphone" jdbcType="VARCHAR"/>
+		<result column="email" property="email" jdbcType="VARCHAR"/>
+		<result column="peopleid" property="peopleid" jdbcType="VARCHAR"/>
+		
+	</resultMap>
+
+
+	<sql id="user">
+	 	userid,YZJID,telphone,email,peopleid
+	</sql>
+
+	<insert id="addUser" parameterType="com.blog.entity.User">
+		insert into t_user (userid,email,YZJID,peopleid)
+		values (#{userid,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{YZJID,jdbcType=VARCHAR},#{peopleid,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="checkUser" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select 
+		<include refid="user"/>
+		from t_user where YZJID = #{id,jdbcType=VARCHAR}
+	</select>
+	 
+</mapper>

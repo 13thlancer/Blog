@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.mapper.ReactMapper">
+
+	<resultMap id="BaseResultMap" type="com.blog.entity.React">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="articleid" property="articleid" jdbcType="VARCHAR"/>
+		<result column="commentorid" property="commentorid" jdbcType="VARCHAR"/>
+		<result column="reactorid" property="reactorid" jdbcType="VARCHAR"/>
+		<result column="content" property="content" jdbcType="VARCHAR"/>
+		<result column="reacttype" property="reacttype" jdbcType="VARCHAR"/>
+		<result column="reactdate" property="reactdate" jdbcType="TIMESTAMP"/>	
+	</resultMap>
+	
+	<resultMap id="CommentList" type="com.blog.entity.React">
+		<id column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="articleid" property="articleid" jdbcType="VARCHAR"/>
+		<result column="commentorid" property="commentorid" jdbcType="VARCHAR"/>
+		<result column="reactorid" property="reactorid" jdbcType="VARCHAR"/>
+		<result column="content" property="content" jdbcType="VARCHAR"/>
+		<result column="reacttype" property="reacttype" jdbcType="VARCHAR"/>
+		<result column="reactdate" property="reactdate" jdbcType="TIMESTAMP"/>	
+		<collection property="people" javaType="java.util.List" ofType="com.blog.entity.People">
+			<id column="id" property="id" jdbcType="VARCHAR"/>
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+			<result column="picpath" property="picpath" jdbcType="VARCHAR"/>
+		</collection>
+	</resultMap>
+
+	<sql id="Comment">
+	 	id,articleid,commentorid,reactorid,content,reacttype,reactdate
+	</sql>
+	
+	
+	<insert id="addReact" parameterType="com.blog.entity.React">
+		insert into t_pm_react (id,articleid,commentorid,reactorid,content,reacttype,reactdate)
+		values (#{id,jdbcType=VARCHAR},#{articleid,jdbcType=VARCHAR},#{commentorid,jdbcType=VARCHAR},#{reactorid,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{reacttype,jdbcType=VARCHAR},#{reactdate,jdbcType=TIMESTAMP})
+	</insert>
+	
+	<select id="showComment" resultMap="CommentList" parameterType="java.lang.String">
+		select 
+			r.id,
+			r.articleid,
+			r.commentorid,
+			r.reactorid,
+			r.content,
+		    r.reacttype,
+			r.reactdate	,
+			p.id,
+			p.name,
+			p.picpath
+			from
+			t_pm_react r
+			left join
+			t_pm_people p
+			on
+			r.reactorid = p.id
+			where r.reacttype = 1 and r.articleid= #{id,jdbcType=VARCHAR} order by reactdate
+	</select>
+	 
+	 <select id="countComment"  resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT COUNT(*) FROM t_pm_react where reacttype = 1 and articleid= #{id,jdbcType=VARCHAR}
+	</select>
+	
+	 <select id="countZan"  resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT COUNT(*) FROM t_pm_react where reacttype = 2 and articleid= #{id,jdbcType=VARCHAR}
+	</select>
+
+	
+</mapper>	

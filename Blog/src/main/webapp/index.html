@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+<meta name="viewport" content="width=device-width" /> 
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<style type="text/css">
+
+    .fileInputContainer{
+        height:256px;
+        background:url(http://images.cnblogs.com/cnblogs_com/dreamback/437546/o_ff6.png);
+        position:relative;
+        width: 256px;
+    }
+    .fileInput{
+        height:256px;
+        font-size: 300px;
+        position:absolute;
+        right:0;
+        top:0;
+        opacity: 0;
+        filter:alpha(opacity=0);
+        cursor:pointer;
+    }
+
+</style>
+</head>
+<body>
+
+<div data-role="page" id="pageone" data-position="fixed">
+  <div data-role="header" data-position="fixed">
+    <h1>在此处插入标题</h1>
+  </div>
+
+  <div data-role="content">
+
+    <p>在此处插入正文fawer waerwaerawerawerawerawerwerwerwerwerwerwerwerwer</p>
+    <div id="preview"></div>
+    <input name="imgbtn" type="image" src="login_08.gif" width="50" height="35" border="0">
+<!--     <input type="file" name="img" multiple="multiple"  multiple accept="image/*" onchange="imagePreview(this)"/> -->
+    
+    
+<div class="fileInputContainer">
+    <div id="preview"></div>
+    <input class="fileInput" type="file" name="img" multiple="multiple"  multiple accept="image/*" onchange="imagePreview(this)"/>
+</div>
+
+
+<div style="margin :0px auto; width:990px;">
+
+	<input type="file"  name="file" id="doc" multiple="multiple"  style="width:150px;" onchange="javascript:setImagePreviews();" accept="image/*" />
+
+	<div id="dd" style=" width:100%;"></div>
+
+</div>
+
+</div>
+
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <h1>在此处插入页脚文本</h1>
+  </div>
+</div> 
+
+
+<script type="text/javascript">
+function imagePreview(input){
+    var files = input.files;
+    // 假设 "preview" 是将要展示图片的 div
+    var preview = input.parentNode;
+    for (var i = 0; i < files.length; i++) {//预览新添加的图片
+        var file = files[i];
+          var imageType = /^image\//;
+        if ( !imageType.test(file.type) ) {
+          alert("请选择图片类型上传");
+          continue;
+        }
+        var img = document.createElement("img");
+        img.classList.add("obj");
+        img.file = file;
+        img.style.width = "100px";
+        preview.appendChild(img);
+        var reader = new FileReader();
+        reader.onload = (function(aImg) {
+          return function(e) {
+            aImg.src = e.target.result;
+          };
+        })(img);
+        reader.readAsDataURL(file);
+    }
+}
+
+
+function setImagePreviews() {
+    var docObj = document.getElementById("doc");
+    var dd = document.getElementById("dd");
+    dd.innerHTML = "";
+    var fileList = docObj.files;
+    for (var i = 0; i < fileList.length; i++) {            
+        dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
+        var imgObjPreview = document.getElementById("img"+i); 
+        if (docObj.files && docObj.files[i]) {
+            //火狐下，直接设img属性
+            imgObjPreview.style.display = 'block';
+            imgObjPreview.style.width = '150px';
+            imgObjPreview.style.height = '180px';
+            //imgObjPreview.src = docObj.files[0].getAsDataURL();
+            //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+            imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+        }
+        else {
+            //IE下，使用滤镜
+            docObj.select();
+            var imgSrc = document.selection.createRange().text;
+            alert(imgSrc)
+            var localImagId = document.getElementById("img" + i);
+            //必须设置初始大小
+            localImagId.style.width = "150px";
+            localImagId.style.height = "180px";
+            //图片异常的捕捉，防止用户修改后缀来伪造图片
+            try {
+                localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+            }
+            catch (e) {
+                alert("您上传的图片格式不正确，请重新选择!");
+                return false;
+            }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
+    }  
+    return true;
+}
+
+</script>
+</body>
+</html>

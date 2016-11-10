@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">          
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+  
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<style type="text/css">
+body,ul,li{margin:0;padding:0;}
+.grid_wrapper{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid{
+    margin-left: 5px;
+    margin-top: 5px;
+    list-style-type:none;
+}
+
+.grid:after{
+    content: ".";
+    display: block;
+    line-height: 0;
+    width:0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.grid li{float:left;line-height: 50px;}
+
+.grid li img,.grid li img:visited{
+    display:block;
+    border: 0px solid #ccc;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    margin-left: 2px;
+    margin-top: 2px;
+    position: relative;
+    z-index: 1;
+}
+</style>
+</head>
+<body>
+  <div id="pageone">
+      <div data-role="header" style="justify-content:center;align-items:center;display:-webkit-flex;height:40px;background:#ffffff;">
+            <a href="Blog.html" data-role="button" style="text-decoration:none;background:#ffffff">
+                <em style=" font-style:normal;font-weight: normal;color:#868686">返回</em>
+            </a>
+          <div role="button" style="margin:0 auto;width:70%;background:#ffffff;text-align:center;">
+              <em style=" font-style:normal;font-weight: normal;color:#868686">微博正文</em>
+              <em></em>
+          </div>
+           
+      </div>
+      
+     <div id="blog" style="background:#d8d8d8;width:100%;margin-left: auto;height:auto; overflow:hidden">
+        <div style="background:#ffffff;width:100%;margin-left: auto;height:auto; overflow:hidden">
+          <div id="title">
+            <div style="float:left;width:40px;height:40px;margin-left:20px">
+               <img style="width:100%;height:100%;"src="img/2.jpg"/>
+            </div>
+            <div style="margin-top:10px;margin-left:25%">
+                <span id="username" style="font-size:18px; font-weight:bold;">鲜衣美食君</span>
+                <br>
+                <span id="sendtime" style="font-size:12px;">2016-09-13  11：23</span>
+            </div>     
+          </div>
+            
+          <div id="content" style="width:90%;margin-left: auto;margin-right: auto;">
+             据说目前中国7亿人遭高温烧烤，说真的！这天气就算是老公跟人跑了，我都懒得去追 真的是太热了，出门5分钟，流汗两小时 如果我和你妈同时掉进水里 ，请先救你妈 我想在水里多呆一会[doge]对了，街上的烤肉麻烦多放点辣椒和孜然[兔子]
+          </div>
+            
+   		<div id="pic2" style="width:100%;">
+   			<p></p>
+   		   </div>
+
+      
+      <div data-role="footer"  data-position="fixed" style="height:50px;background:#ffffff;">
+       <ul class="tool" style="list-style-type: none;">
+                <li style="float:left;line-height:50px;width:33%;vertical-align:middle;text-align:center;">
+                    <a role="button" style="text-decoration:none;">
+                        <em></em>
+                        <em style=" font-style: normal;font-weight: normal;color:#868686">转发</em>
+                    </a>
+                </li>
+                <li style="float:left;line-height:50px;width:33%;vertical-align:middle;text-align:center;">
+                    <a href="Reply.html" role="button" style="text-decoration:none;">
+                        <em></em>
+                        <em style=" font-style:normal;font-weight: normal;color:#868686">评论</em>
+                    </a>
+                </li>
+                <li style="float:left;line-height:50px;width:33%;vertical-align:middle;text-align:center;">
+                    <a role="button" style="text-decoration:none;">
+                        <em></em>
+                        <em style=" font-style:normal;font-weight: normal;color:#868686">赞</em>
+                    </a>
+                </li>
+            </ul>
+    </div>                
+    
+  </div>
+      
+      <script>
+$("#pic1").actizPicShow({data:[
+{id:"1",img:"img/001.jpg",middleimg:"img/001.jpg",bigimg:"img/001.jpg"},
+{id:"2",img:"img/002.jpg",middleimg:"img/002.jpg",bigimg:"img/002.jpg"},
+{id:"1",img:"img/003.jpg",middleimg:"img/003.jpg",bigimg:"img/003.jpg"},
+{id:"2",img:"img/004.jpg",middleimg:"img/004.jpg",bigimg:"img/004.jpg"},
+]});
+
+
+$("#pic2").actizPicShow({data:[
+{id:"1",img:"img/005.jpg",middleimg:"img/005.jpg",bigimg:"img/005.jpg"}
+]});
+</script>
+
+</body>
+</html>
