@@ -100,9 +100,9 @@
 			document.getElementById("content").innerHTML=data.content;
 			var count = data.commentcount;
 			var zancount = data.zancount;
-			var html = "<input id='input' type='text' style='height:23px;margin-top:6px;margin-left:20px;width:65%;' onclick='showComment();'>"
-			html += "<a style='position:relative;left:10px' href='Reply.jsp?id="+articleid+"'><img style='position:relative;top:9px;' src='imgs/wz_53.png' />"+count+"</a>"
-			html +="<a style='position:relative;left:15px' onclick=zan("+articleid+")><img style='position:relative;top:5px;' src='imgs/wz_52.png' />"+zancount+"</a>"
+			var html = "<input id='input' type='text' style='height:23px;margin-top:6px;margin-left:20px;width:50%;' onclick='showComment();'>"
+			html += "<a style='position:relative;left:20px' href='Reply.jsp?id="+articleid+"'><img style='position:relative;top:9px;' src='imgs/wz_53.png' />"+count+"</a>"
+			html +="<a style='position:relative;left:50px' href='javascript:void(0)' onclick=\"zan('"+articleid+"')\"><img style='position:relative;top:5px;background-color:red;' src='imgs/wz_52.png'/>"+zancount+"</a>"
 			$('#footer').append(html);
 			}
 	  })

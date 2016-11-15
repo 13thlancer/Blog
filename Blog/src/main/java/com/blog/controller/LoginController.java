@@ -45,11 +45,10 @@ public class LoginController {
 		people.setPicpath(photoUrl);
 		people.setCreatetime(date);
 		
-		
 		httpSession.setAttribute("openid", openid);  
+		httpSession.setAttribute("username", name);
 		
 		loginServiceI.BindUser(user,people);
-		
 	}
 
 }

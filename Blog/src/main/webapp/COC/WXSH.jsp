@@ -65,7 +65,7 @@
 				<a href="#">品牌宣传</a>
 			</li>
 			<li class="n4">
-				<a href="XQXZ.jsp">兴趣小组</a>
+				<a href="../Blog.html">兴趣小组</a>
 			</li>
 		</ul>
 	</div>

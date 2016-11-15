@@ -19,8 +19,6 @@
 <link rel="stylesheet" href="css/slicy.css">
 <link rel="stylesheet" href="css/glide.css">
 <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 <body onload="showSlide()">
 
@@ -162,7 +160,7 @@
 			</a>
 			</li>
 			<li>
-			<a href="BZFW.jsp">
+			<a href="StandardService.jsp">
 				<img src="imgs/wz_11.png"/>
 				<h4>标准服务</h4>
 			</a>
