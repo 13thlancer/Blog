@@ -22,7 +22,7 @@
 <div class="layout">
 	<div class="header">
 		<h4>温馨商会</h4>
-		<div class="return" onclick="history.go(-1)">
+		<div class="return" onclick=location.href="Main.jsp">
 			
 		</div>
 	</div>

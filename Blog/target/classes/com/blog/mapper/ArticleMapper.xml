@@ -18,6 +18,12 @@
             <result column="pnum" property="pnum" jdbcType="INTEGER" />
             <result column="name" property="name" jdbcType="VARCHAR" />
         </collection>
+         <collection property="react" javaType="java.util.List" ofType="com.blog.entity.React">
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="articleid" property="articleid" jdbcType="VARCHAR" />
+            <result column="reactorid" property="reactorid" jdbcType="VARCHAR" />
+            <result column="reacttype" property="reacttype" jdbcType="VARCHAR" />
+        </collection>
     </resultMap>
 
 	<sql id="Article">
@@ -44,13 +50,28 @@
 		from t_pm_article a
 		left join t_messagetype m
 		on a.messagetype = m.num
+		left join t_pm_react r
+		on a.articleid = r.articleid
 		where a.messagetype = #{mtype,jdbcType= VARCHAR}
 	</select>
 	
+	<select id="showArticleZan" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select *
+		from t_pm_article a
+		left join t_messagetype m
+		on a.messagetype = m.num
+		left join t_pm_react r
+		on a.articleid = r.articleid
+		where r.reactorid = #{openid,jdbcType= VARCHAR} and r.reacttype=2
+	</select>
+	
+	
 	<select id="showDetail" resultMap="BaseResultMap" parameterType="java.lang.String">
-		select 
-		<include refid="Article"/>
-		from t_pm_article where articleid = #{id,jdbcType=VARCHAR}
+		select *		
+		from t_pm_article a
+		left join t_pm_react r
+		on a.articleid = r.articleid
+		where a.articleid = #{id,jdbcType=VARCHAR}
 	</select>
 	
 </mapper>	

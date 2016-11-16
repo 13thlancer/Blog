@@ -25,7 +25,7 @@
 <div class="layout">
 	<div class="header">
 		<h4>组织的力量</h4>
-		<div class="return" onclick="history.go(-1)">
+		<div class="return" onclick=location.href="Main.jsp">
 			
 		</div>
 	</div>

@@ -62,6 +62,10 @@
 		SELECT COUNT(*) FROM t_pm_react where reacttype = 1 and articleid= #{id,jdbcType=VARCHAR}
 	</select>
 	
+	<select id="selectReactById"  resultMap="CommentList" parameterType="com.blog.entity.React">
+		SELECT * FROM t_pm_react where reacttype = 2 and articleid= #{articleid,jdbcType=VARCHAR} and reactorid = #{reactorid,jdbcType=VARCHAR}
+	</select>
+	
 	 <select id="countZan"  resultType="java.lang.Integer" parameterType="java.lang.String">
 		SELECT COUNT(*) FROM t_pm_react where reacttype = 2 and articleid= #{id,jdbcType=VARCHAR}
 	</select>

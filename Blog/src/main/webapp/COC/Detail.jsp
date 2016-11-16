@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%
+HttpSession s = request.getSession();
+String username=(String)s.getAttribute("username");
+String openid=(String)s.getAttribute("openid");
+String phone=(String)s.getAttribute("phone");
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -100,14 +104,36 @@
 			document.getElementById("content").innerHTML=data.content;
 			var count = data.commentcount;
 			var zancount = data.zancount;
+			var reacttype = data.react[0].reacttype;
+			var reactorid = data.react[0].reactorid;
 			var html = "<input id='input' type='text' style='height:23px;margin-top:6px;margin-left:20px;width:50%;' onclick='showComment();'>"
 			html += "<a style='position:relative;left:20px' href='Reply.jsp?id="+articleid+"'><img style='position:relative;top:9px;' src='imgs/wz_53.png' />"+count+"</a>"
-			html +="<a style='position:relative;left:50px' href='javascript:void(0)' onclick=\"zan('"+articleid+"')\"><img style='position:relative;top:5px;background-color:red;' src='imgs/wz_52.png'/>"+zancount+"</a>"
+			html +="<a style='position:relative;left:50px' href='javascript:void(0)' onclick=\"zan('"+articleid+"')\"><img id='"+articleid+"' style='position:relative;top:5px;' src='imgs/wz_52.png'/><span id='s"+articleid+"' >"+zancount+"</span></a>"
 			$('#footer').append(html);
+			  checkzan();
+
 			}
 	  })
   }
   
+ 
+  function checkzan(){
+  	$.ajax({
+  		type:"post",
+  		url:"<%=basePath%>ArticleController/showArticleZan",
+  		dataType:"json",
+  		error:function(){
+  		},
+  		success:function(data){
+  			for(i=0;i<data.length;i++){
+  			var id = data[i].articleid;
+  			
+  				$("#"+id+"").attr("src","imgs/wz_52_a.png");
+  			}
+  		}
+  	})
+  	
+  }
   function zan(id){
 	  var postdata={id:id}
 	  $.ajax({
@@ -116,8 +142,9 @@
 			async:false,
 			data:postdata,
 			success:function(data){
-				location.reload();
-			
+				$("#"+data.articleid+"").attr('src','imgs/wz_52_a.png'); 
+/* 				$("#"+data.articleid+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+ */				$("#s"+data.articleid+"").html(data.zanCount);			
 				}
 		  })
   }

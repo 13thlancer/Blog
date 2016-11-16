@@ -21,7 +21,7 @@
 <div class="layout">
 	<div class="header">
 		<h4>标准服务</h4>
-		<div class="return" onclick="history.go(-1)">
+		<div class="return" onclick=location.href="Main.jsp">
 			
 		</div>
 	</div>

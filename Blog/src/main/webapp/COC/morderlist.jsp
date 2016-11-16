@@ -293,9 +293,8 @@
 
     var selectedTr = null;
 
-    var phone = <%=phone%>;
-
     function showMyList(){
+    	
         var postData = {
            openid:document.getElementById("openid").value
         };
@@ -382,7 +381,7 @@
     function addOrder(){
         var postData = {
             username:document.getElementById("ousername").value,
-            openid:document.getElementById("openid").value,
+            userid:document.getElementById("openid").value,
             conusername:document.getElementById("oconusername").value,
             phone:document.getElementById("ocontel").value,
             require:document.getElementById("requirename").value,

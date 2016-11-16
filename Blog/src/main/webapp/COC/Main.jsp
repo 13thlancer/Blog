@@ -208,7 +208,7 @@ function showSlide(){
 			var id = data[i].articleid;
 	
 			
-				var slid = "<li class='slide'><a href='Detail.jsp?id="+id+"''><img src='"+picpath+"' /><div class='txt'><h4>"+title+"</h4></div></a></li>"
+				var slid = "<li class='slide'><a href='Detail.jsp?id="+id+"''><img src='imgs/wz_img10.jpg' /><div class='txt'><h4>"+title+"</h4></div></a></li>"
 				$('#slide').append(slid); 
 			}
 			

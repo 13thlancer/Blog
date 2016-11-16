@@ -2,6 +2,8 @@ package com.blog.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +34,8 @@ public class ArticleController {
 	
 	@ResponseBody
 	@RequestMapping(value="showArticleBytype",method=RequestMethod.POST)
-	public List<Article> showArticleBytype(String mtype){
+	public List<Article> showArticleBytype(String mtype,HttpSession httpSession){
+		String openid = (String) httpSession.getAttribute("openid");  
 		return articleServiceI.showArticleBytype(mtype);
 	}
 
@@ -40,5 +43,12 @@ public class ArticleController {
 	@RequestMapping(value="showLatestArticle",method=RequestMethod.POST)
 	public List<Article> showLatestArticle(){
 		return articleServiceI.showLatestArticle();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="showArticleZan",method=RequestMethod.POST)
+	public List<Article> showArticleZan(HttpSession httpSession){
+		String openid = (String) httpSession.getAttribute("openid");  
+		return articleServiceI.showArticleZan(openid);
 	}
 }

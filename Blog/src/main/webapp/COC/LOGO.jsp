@@ -92,7 +92,7 @@ function getpersoninfo(){
                } /* else { 
             	   alert("返回失败！"); 
                } */
-          		window.setTimeout("window.location='Login.jsp'",100); 
+          		window.setTimeout("window.location='Main.jsp'",100); 
         	}
 		});
 	

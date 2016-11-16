@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%
+	HttpSession s = request.getSession();
+	String username=(String)s.getAttribute("username");
+	String openid=(String)s.getAttribute("openid");
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	
 %> 
 <!DOCTYPE html>
 <html>
@@ -106,16 +110,44 @@ function showArticle(){
 			var type = data[i].mtype[0].name;
 			var time = data[i].createTime;
 			var id = data[i].articleid;
+			var reacttype = data[i].react[0].reacttype;
+			var reactorid = data[i].react[0].reactorid;
 			
-			
-			var html ="<li><div class='bd'><div class='img'><img src='"+picpath+"'/></div><div  onclick=location.href='Detail.jsp?id="+id+"' class='txt'>"
+			var html ="<li><div class='bd'><div class='img'><img src='"+picpath+"'/></div><div onclick=location.href='Detail.jsp?id="+id+"' class='txt'>"
 			html +="<h4>"+title+"</h4><p>"+content+"</p></div></div><div class='ft'><div class='l'>"
 			html +="<div class='tx'><h6>"+ time+"</h6></div></div>"
-			html +="<div class='r'><dl><dt onclick=zan("+id+")>"+ReplyCount(id)[1]+"</dt><dd onclick=location.href='Reply.jsp?id="+id+"'>"+ReplyCount(id)[0]+"</dd></dl></div></div></li>"									
-			$('#list').append(html);						
+			html +="<div class='r'><dl><dt id="+id+" onclick=\"zan('"+id+"')\"><span id='s"+id+"' style='margin-left:5px;'>"+ReplyCount(id)[1]+"</span></dt><dd onclick=location.href='Reply.jsp?id="+id+"'>"+ReplyCount(id)[0]+"</dd></dl></div></div></li>"									
+			
+			$('#list').append(html);
+	
+			if(reacttype == 2 && reactorid=="<%=openid%>"){
+				$("#"+id+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+				$("#"+id+"").css("background-size","15px 15px;");
+				}
+			}
+			checkzan();
+		}
+	})
+}
+
+function checkzan(){
+	$.ajax({
+		type:"post",
+		url:"<%=basePath%>ArticleController/showArticleZan",
+		dataType:"json",
+		error:function(){
+		},
+		success:function(data){
+			for(i=0;i<data.length;i++){
+			var id = data[i].articleid;
+			var reacttype = data[i].react[0].reacttype;
+			var reactorid = data[i].react[0].reactorid;
+				$("#"+id+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+				$("#"+id+"").css("background-size","15px 15px;");
 			}
 		}
 	})
+	
 }
 
 function ReplyCount(id){
@@ -138,6 +170,7 @@ function ReplyCount(id){
 }
 
 function zan(id){
+	
 	  var postdata={id:id}
 	  $.ajax({
 			type:"POST",
@@ -145,8 +178,10 @@ function zan(id){
 			async:false,
 			data:postdata,
 			success:function(data){
-				location.reload();
-			
+				/* location.reload(); */
+				
+			$("#"+data.articleid+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+			$("#s"+data.articleid+"").html(data.zanCount);
 				}
 		  })
 }

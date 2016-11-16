@@ -10,7 +10,7 @@ public interface ReactServiceI {
 	
 	List<React> showComment(String id);
 	
-	void Zan(String id,String openid);
+	React Zan(String id,String openid);
 	
 
 }

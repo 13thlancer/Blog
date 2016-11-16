@@ -14,6 +14,7 @@ public interface ArticleServiceI {
 	
 	List<Article> showLatestArticle();
 
+	List<Article> showArticleZan(String openid);
 
 
 }

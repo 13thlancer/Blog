@@ -14,7 +14,6 @@ public class RequireOrder {
 	private Date CreateTime;
 	private Date UpdateTime;
 	
-	
 	public String getId() {
 		return id;
 	}

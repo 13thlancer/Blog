@@ -36,12 +36,22 @@ public class ArticleServiceImpl implements ArticleServiceI{
 
 	@Override
 	public List<Article> showArticleBytype(String mtype) {
+		List<Article> list = articleMapper.showArticleBytype(mtype);
+		for(int i=0;i<list.size();i++){
+			list.get(i).getArticleid();
+		}
 		return articleMapper.showArticleBytype(mtype);
 	}
 
 	@Override
 	public List<Article> showLatestArticle() {
 		return articleMapper.showLatestArticle();
+	}
+
+	@Override
+	public List<Article> showArticleZan(String openid) {
+		// TODO Auto-generated method stub
+		return articleMapper.showArticleZan(openid);
 	}
 
 }

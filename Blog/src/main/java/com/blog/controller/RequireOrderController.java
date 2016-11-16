@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.blog.Utils.Lucene;
+//import com.blog.Utils.Lucene;
 import com.blog.entity.RequireOrder;
 import com.blog.service.RequireOrderServiceI;
 
@@ -48,24 +48,24 @@ public class RequireOrderController {
 		
 	}
 	
-	@ResponseBody
-	@RequestMapping(value="search",method=RequestMethod.POST)
-	public List<RequireOrder> search(String openid,String search){
-		Lucene lucene = new Lucene();
-		List<RequireOrder> list = new ArrayList<RequireOrder>();
-		try {
-			list = lucene.search(requireOrderServiceI.showMyOrder(openid), search);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (java.text.ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return list;
-	}
+//	@ResponseBody
+//	@RequestMapping(value="search",method=RequestMethod.POST)
+//	public List<RequireOrder> search(String openid,String search){
+//		Lucene lucene = new Lucene();
+//		List<RequireOrder> list = new ArrayList<RequireOrder>();
+//		try {
+//			list = lucene.search(requireOrderServiceI.showMyOrder(openid), search);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (java.text.ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return list;
+//	}
 
 }

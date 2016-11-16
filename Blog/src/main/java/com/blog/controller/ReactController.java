@@ -35,9 +35,9 @@ public class ReactController {
 	
 	@ResponseBody
 	@RequestMapping(value="Zan",method=RequestMethod.POST)
-	public void Zan(String id,HttpSession httpSession){
+	public React Zan(String id,HttpSession httpSession){
 		String openid = (String) httpSession.getAttribute("openid");  
-		reactServiceI.Zan(id,openid);
+		return reactServiceI.Zan(id,openid);
 	}
 	
 

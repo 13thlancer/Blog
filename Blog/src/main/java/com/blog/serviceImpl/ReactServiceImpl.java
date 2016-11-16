@@ -1,7 +1,5 @@
 package com.blog.serviceImpl;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -41,14 +39,14 @@ public class ReactServiceImpl implements ReactServiceI{
 			int zancount = reactMapper.countZan(list.get(i).getId());
 			list.get(i).setZanCount(zancount);
 		}
-		
 		return list;
 	}
 
 	@Override
-	public void Zan(String id, String openid) {
+	public React Zan(String id, String openid) {
 		React react = new React();
 		String reactid = UUID.randomUUID().toString();
+	
 		Date date = new Date();
 		
 		react.setArticleid(id);
@@ -56,7 +54,15 @@ public class ReactServiceImpl implements ReactServiceI{
 		react.setId(reactid);
 		react.setReactdate(date);
 		react.setReacttype("2");
-		reactMapper.addReact(react);		
+		List<React> list  = reactMapper.selectReactById(react);
+		if(list.isEmpty()){
+			reactMapper.addReact(react);
+			react.setZanCount(reactMapper.countZan(id));
+			return react;
+		}else{
+			react.setZanCount(reactMapper.countZan(id));
+			return react;
+		}
 	}
 
 }

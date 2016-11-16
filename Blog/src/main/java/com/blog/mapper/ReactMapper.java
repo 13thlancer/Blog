@@ -14,5 +14,7 @@ public interface ReactMapper {
 	int countComment(String id);
 	
 	int countZan(String id);
+	
+	List<React> selectReactById(React react);
 
 }

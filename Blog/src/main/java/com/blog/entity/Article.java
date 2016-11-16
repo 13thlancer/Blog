@@ -16,12 +16,18 @@ public class Article {
 	private int Status;
 	private int Seq;
 	
-	
 	private int commentcount;
 	private int zancount;
-	
+	private boolean iszan;
 	private List<MessageType> mtype;
-	
+	private List<React> react;
+
+	public List<React> getReact() {
+		return react;
+	}
+	public void setReact(List<React> react) {
+		this.react = react;
+	}
 	private Date CreateTime;
 	
 	private Date UpdateTime;
@@ -109,6 +115,12 @@ public class Article {
 	}
 	public void setUpdateTime(Date updateTime) {
 		UpdateTime = updateTime;
+	}
+	public boolean isIszan() {
+		return iszan;
+	}
+	public void setIszan(boolean iszan) {
+		this.iszan = iszan;
 	}
 	
 	

@@ -102,7 +102,7 @@ img{
 	display: none;
 }
 .hslide li.slide img{
-	display: block; 
+	display: block; height:200px;width:100%;
 }
 .hslide li.slide{
 	position: relative;
@@ -137,17 +137,17 @@ img{
 }
 .home_list li .txt h4{
 	height: 48px; width: 100%; overflow: hidden;
-	line-height: 24px; font-size: 12px;
+	line-height: 24px; font-size: 15px;
 }
 .home_list li .txt .sub{
 	height: 12px; line-height: 12px;
 	font-size: 9px; color: #CCCCCC;
 }
 .home_list li .txt .sub h5{
-	width: auto; float: left; display: inline;
+	width: auto; float: left; display: inline;font-size: 12px;
 }
 .home_list li .txt .sub h6{
-	width: auto; float: right; display: inline;
+	width: auto; float: right; display: inline;font-size: 12px;
 }
 .footer{
 	height: 46px; position: fixed;
