@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+ <%
 	HttpSession s = request.getSession();
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -35,16 +35,16 @@
 		<div class="hd">
 			<ul>
 				<li class="n1 selected">					
-					制造业
+					经济类
 				</li>
-				<li class="n2">
-					农林牧业
+				<li id="list2" class="n2">
+					招商引资
 				</li>
-				<li class="n3">
-					房产业
+				<li id="list3" class="n3">
+					组织活动
 				</li>
-				<li class="n4">
-					其他
+				<li id="list4" class="n4">
+					项目合作
 				</li>
 			</ul>
 		</div>
@@ -305,13 +305,13 @@ function showArticle(){
 				var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'> <h4>"+title+"</h4>"
 				html += "<div class='sub'><h5>"+type+"</h5><h6>"+time+"</h6></div></div></a></li>"
 				
-				if(num==51){
+				if(num==41){
 					$('#list1').append(html);	
-				}else if(num==52){
+				}else if(num==42){
 					$('#list2').append(html);	
-				}else if(num==53){
+				}else if(num==43){
 					$('#list3').append(html);	
-				}else if(num==54){
+				}else if(num == 44){
 					$('#list4').append(html);	
 				}
 			}

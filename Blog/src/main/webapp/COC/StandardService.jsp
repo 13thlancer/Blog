@@ -54,7 +54,7 @@
 				<a href="FLYZ.jsp">法律援助</a>
 			</li>
 			<li class="n2">
-				<a href="">信息服务</a>
+				<a href="MessageService.jsp">信息服务</a>
 			</li>
 			<li class="n3">
 				<a href="morderlist.jsp">共享经济</a>
