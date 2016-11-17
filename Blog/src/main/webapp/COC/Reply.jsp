@@ -152,7 +152,7 @@
 				var zancount = data[i].zanCount;
 				
 				var comment= "<li><div class='avatar'><img src='"+picpath+"'/></div><div class='hd'><h4>"+name+"</h4>"
-				comment += "<span>"+date+"</span></div><div id='replylist"+id+"' class='bd'>"+content+"</div><div class='ft'><dl><dd onclick=\"showReply('"+id+"')\" style='font-size:2px;'>回复</dd><dt onclick=\"zan('"+id+"')\">"+zancount+"</dt></dl></div>"
+				comment += "<span>"+date+"</span></div><div id='replylist"+id+"' class='bd'>"+content+"</div><div class='ft'><dl><dd onclick=\"showReply('"+id+"')\" style='font-size:2px;'></dd><dt id='"+id+"' onclick=\"zan('"+id+"')\"><span id='s"+id+"' style='font-size:15px;position:relative;top:6px;left:3px;'>"+zancount+"</span></dt></dl></div>"
 				comment += "<div id='replay"+id+"' class='sub'><form method='post'><input  id='replycontent"+id+"' type='text' value='@"+name+":' class='txt'/><input type='button' onclick=\"reply('"+id+"')\" class='ui_btn' value='发表'/></form></div></li>"
 						
 				
@@ -170,6 +170,7 @@
       			$('#commentList').append(comment);
       			showReplyList(id);
 			}
+			checkzan();
 		}
 	  })  
   }
@@ -189,6 +190,7 @@
 		  })
   }
   
+  
   function zan(id){
 	  var postdata={id:id}
 	  $.ajax({
@@ -197,11 +199,13 @@
 			async:false,
 			data:postdata,
 			success:function(data){
-				location.reload();
+/* 				$("#"+data.articleid+"").attr('src','imgs/wz_52_a.png'); 
+ */ 			$("#"+data.articleid+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+ 				$("#s"+data.articleid+"").html(data.zanCount);			
 				}
 		  })
   }
- 
+  
   function showReply(id){
 	  if(showdiv_display = document.getElementById("replay"+id+"").style.display=='none'){
 	  		document.getElementById("replay"+id+"").style.display='block';
@@ -243,7 +247,7 @@
 			 	
 				
 				var comment= "<div style='width:90%;margin-left:5%;background-color:#FAFAFA;' ><div  style='margin-left:5%;' class='hd'><h4>"+name+"</h4>"
-				comment += "<span>"+date+"</span></div><div style='margin-left:5%;' class='bd'>"+content+"</div><div class='ft'><dl><dd onclick=\"showReply('"+sid+"')\" style='font-size:2px;'>回复</dd></dl></div>"
+				comment += "<span>"+date+"</span></div><div style='margin-left:5%;' class='bd'>"+content+"</div><div class='ft'><dl><dd onclick=\"showReply('"+sid+"')\"></dd></dl></div>"
 				comment += "<div id='replay"+sid+"' class='sub'><form method='post'><input  id='replycontent"+sid+"' type='text' value='@"+name+":' class='txt'/><input type='button' onclick=\"rreply('"+sid+"','"+id+"')\" class='ui_btn' value='发表'/></form></div></div>"
 				
 				
@@ -279,6 +283,25 @@
   }
   
 
+  function checkzan(){
+  	$.ajax({
+  		type:"post",
+  		url:"<%=basePath%>ArticleController/showArticleZan",
+  		dataType:"json",
+  		error:function(){
+  		},
+  		success:function(data){
+  			for(i=0;i<data.length;i++){
+  			var id = data[i].articleid;
+  			var reacttype = data[i].react[0].reacttype;
+  			var reactorid = data[i].react[0].reactorid;
+  				$("#"+id+"").css("background","url(imgs/wz_52_a.png) no-repeat left center");
+  				$("#"+id+"").css("background-size","15px 15px;");
+  			}
+  		}
+  	})
+  	
+  }
 </script>
 </body>
 </html>

@@ -16,5 +16,5 @@ public interface ArticleServiceI {
 
 	List<Article> showArticleZan(String openid);
 
-
+	List<Article> showArticleByPtype(String ptype);
 }

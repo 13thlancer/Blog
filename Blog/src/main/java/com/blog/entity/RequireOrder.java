@@ -2,17 +2,22 @@ package com.blog.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class RequireOrder {
 	private String id;
-	private String userid;
+	private String userid;      
 	private String username;
 	private String conusername;
 	private String phone;
 	private String require;
-	private int num;
+	private String num;
 	private String type;
+	private String requirestatus;
 	private Date CreateTime;
 	private Date UpdateTime;
+	
+	  
 	
 	public String getId() {
 		return id;
@@ -50,10 +55,11 @@ public class RequireOrder {
 	public void setRequire(String require) {
 		this.require = require;
 	}
-	public int getNum() {
+	
+	public String getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 	public String getType() {
@@ -62,17 +68,27 @@ public class RequireOrder {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	public Date getCreateTime() {
 		return CreateTime;
 	}
 	public void setCreateTime(Date createTime) {
 		CreateTime = createTime;
 	}
+	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	public Date getUpdateTime() {
 		return UpdateTime;
 	}
 	public void setUpdateTime(Date updateTime) {
 		UpdateTime = updateTime;
+	}
+	public String getRequirestatus() {
+		return requirestatus;
+	}
+	public void setRequirestatus(String requirestatus) {
+		this.requirestatus = requirestatus;
 	}
 	
 

@@ -144,7 +144,7 @@
                             </div>
                         </div>
 
-
+<%-- 
                         <div id="edit" class="container" style="display: none;width: 100%">
                             <br>
                             <div>
@@ -215,46 +215,79 @@
                             <div id="ediv"  style="margin-left: auto;margin-right: auto;display: none;">
                                 <button class="btn btn-large" style="width: 100%;background:#ee8919;" type="submit" onclick="editOrder();return false;">提交</button>
                             </div>
-                        </div>
+                        </div> --%>
 
 
-                        <div id="detail" style="display: none;">
-                            <button class="btn btn-large btn-primary" type="submit" onclick="goback();return false;">返回</button>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">用户名：</label>
-                                <div class="controls">
-                                    <input id="dusername" type="text" name="name" data-required="1"/>
+                        <div id="detail" class="container" style="display: none;width: 100%">
+                       	  <br>
+  							<div>
+                                <button id="back" class="btn btn-large btn-primary" style="width: 20%;float:left;background:#ee8919;" type="submit" onclick="goback();return false;">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                                 <button id="eback" class="btn btn-large btn-primary" style="width: 20%;float:left;display: none;background:#ee8919;" type="submit" onclick="eback();return false;">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                                <span class="form-signin-heading" style="font-size:20px;text-align: center;">订单详情</span>
+                                <button id="ebutton" class="btn btn-large btn-primary" style="width: 20%;float:right;background:#ee8919;" type="submit" onclick="edit();return false;">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </div>                            	<div class="controls" style = "display:none;">
+                                <label class="control-label" for="eid" style="line-height:30px;">id：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="did"  type="text" style="width:100%;height: 30px;" name="eid" data-required="1" readOnly="true" value="<%=openid%>"/>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">需求：</label>
-                                <div class="controls">
-                                    <input id="drequirename" type="text" name="name" data-required="1" />
+                       		<br>
+                          
+                            <div class="controls">
+                                <label class="control-label" for="ousername" style="line-height:30px;">用户名：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="dusername"  type="text" style="width:100%;height: 30px;" name="ousername" data-required="1" readOnly="true" value="<%=username%>"/>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">需求数量：</label>
-                                <div class="controls">
-                                    <input id="dnum" type="text" name="name" data-required="1" />
+                       		<br>
+                            <div class="controls">
+                                <label class="control-label" for="requirename" style="line-height:30px;">需求：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="drequirename"  type="text" style="width:100%;height: 30px;" name="requirename" data-required="1" placeholder="需求"/>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">需求类型：</label>
-                                <div class="controls">
-                                    <input id="dtype" type="text" name="name" data-required="1" />
+                            <br>
+                            <div class="controls">
+                                <label class="control-label" for="num" style="line-height:30px;">数量：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="dnum"  type="text" style="width:100%;height: 30px;" name="num" data-required="1" placeholder="数量"/>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">下单时间：</label>
-                                <div class="controls">
-                                    <input id="ddate" type="text" name="name" data-required="1" />
+                            <br>
+                            <div class="controls">
+                                <label class="control-label" for="oconusername" style="line-height:30px;">联系人：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="dconusername"  type="text" style="width:100%;height: 30px;" name="oconusername" data-required="1" placeholder="联系人" value="<%=username%>"/>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="float: left;">需求状态：</label>
-                                <div class="controls">
-                                    <input id="dstatus" type="text" name="name" data-required="1" />
+                            <br>
+                            <div class="controls">
+                                <label class="control-label" for="ocontel" style="line-height:30px;">联系方式：</label>
+                                <div style="float:right;width:75%;">
+                                    <input id="dcontel"  type="text" style="width:100%;height: 30px;" name="ocontel" data-required="1" placeholder="联系方式" value="<%=phone%>"/>
                                 </div>
+                            </div>
+                            <br>
+                               <div class="controls">
+                                    <label class="control-label" for="dtype" style="line-height:30px;">需求类型：</label>
+                                    <div style="float:right;width:75%;">
+                                        <select id="dtype" name="dtype" style="width:100%; height: 30px;padding: 4px 6px;margin-bottom: 10px;font-size: 14px;line-height: 20px;">
+                                            <option value="">请选择需求类型</option>
+                                            <option value="办公用品">办公用品</option>
+                                            <option value="学习用品">学习用品</option>
+                                            <option value="生活用品">生活用品</option>
+                                            <option value="建筑材料">建筑材料</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            <div id="ediv"  style="margin-left: auto;margin-right: auto;display: none;">
+                                <button id="esub" class="btn btn-large" style="width: 100%;background:#ee8919;" type="submit" onclick="editOrder();return false;">提交</button>
                             </div>
                         </div>
 
@@ -262,8 +295,8 @@
                             <br>
                             <div style="width: 90%;">
                                 <div class="btn-group" style="width:90%;">
-                                    <button id="sub" type="button" class="btn" style="width: 50%;background:#ee8919;" onclick="sublist();">已提交</button>
-                                    <button id="push" type="button" class="btn btn-default" style="width: 50%" onclick="pushlist();">已推送</button>
+                                    <button id="sub" type="button" class="btn" style="width: 50%;background:#ee8919;" onclick="OrderList();">商会意向</button>
+                                    <button id="push" type="button" class="btn btn-default" style="width: 50%" onclick="MyOrder();">我的意向</button>
                                 </div>
                                     <button type="button" class="btn" style="position: absolute;right: 5%;background:#ee8919;" onclick="add();return false;">
                                         <span class="glyphicon glyphicon-list-alt"></span>
@@ -295,26 +328,23 @@
 
     function showMyList(){
     	
-        var postData = {
-           openid:document.getElementById("openid").value
-        };
+      
          $.ajax({
             type: "POST",
-            url: "<%=basePath%>RequireOrderController/ShowMyOrder",
+            url: "<%=basePath%>RequireOrderController/ShowAllOrder",
             cache:false ,
             dataType:'json',
-            data: postData,
             async: false,
             success: function (data) {
                 var length = data.length;
                 for(var i = 0;i<length;i++) {
                     var html = "<div style='width:100%;'>";
-                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onmousedown='del(this);' onclick='detail(this);'>";
+                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onclick='detail(this);'>";
                     html += "<div><span  id='lid' style='display:none;'>"+data[i].id+"</span>"
-                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].requirename+"</span></div><br>";
-                    html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].requiretype+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].conphone+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].requiredate+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
+                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].require+"</span></div><br>";
+                    html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].type+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].createTime+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
                     html += "<br></div></div>";
                     $('#list').append(html);
                 }
@@ -322,44 +352,24 @@
          });
     }
 
-    function detail(obj){
-        $('#edit').show();
-        var id = $(obj).find('#lid').html();
-        var name = $(obj).find('#lname').html();
-        var num = $(obj).find('#lnum').html();
-        var type = $(obj).find('#ltype').html();
-        var conname = $(obj).find('#lconname').html();
-        var contel = $(obj).find('#lcontel').html();
-        var date = $(obj).find('#ldate').html();
-        var status = $(obj).find('#lstatus').html();
-
-        $('#eid').val(id);
-        $('#erequirename').val(name);
-        $('#enum').val(num);
-        $("#etype").val(type);
-        $('#econname').val(conname);
-        $('#econtel').val(contel);
-        $('#edate').val(date);
-        $('#estatus').val(status);
-
-        $('#orderlist').hide();
-    }
+   
 
     function eback(){
-        document.getElementById("erequirename").readOnly = true;
-        document.getElementById("enum").readOnly = true;
-        document.getElementById("econname").readOnly = true;
-        document.getElementById("econtel").readOnly = true;
-        document.getElementById("etype").disabled = true;
+        document.getElementById("drequirename").readOnly = true;
+        document.getElementById("dnum").readOnly = true;
+        document.getElementById("dconusername").readOnly = true;
+        document.getElementById("dcontel").readOnly = true;
+        document.getElementById("dtype").disabled = true;
         $("#erequirename").css("background-color", "#CCCCCC");
         $("#enum").css("background-color", "#CCCCCC");
         $("#econname").css("background-color", "#CCCCCC");
         $("#econtel").css("background-color", "#CCCCCC");
         $("#etype").css("background-color", "#CCCCCC");
+        
         $("#ediv").hide();
+        $("#back").show();
+        $("#eback").hide();
         $("#ebutton").show();
-        $('#orderlist').show();
-        $('#edit').hide();
     }
 
     function add(){
@@ -404,28 +414,30 @@
     }
 
     function edit(){
-        document.getElementById("erequirename").readOnly = false;
-        document.getElementById("enum").readOnly = false;
-        document.getElementById("econname").readOnly = false;
-        document.getElementById("econtel").readOnly = false;
-        document.getElementById("etype").disabled = false;
-        $("#erequirename").css("background-color", "");
-        $("#enum").css("background-color", "");
-        $("#econname").css("background-color", "");
-        $("#econtel").css("background-color", "");
-        $("#etype").css("background-color", "");
+        document.getElementById("drequirename").readOnly = false;
+        document.getElementById("dnum").readOnly = false;
+        document.getElementById("dconusername").readOnly = false;
+        document.getElementById("dcontel").readOnly = false;
+        document.getElementById("dtype").disabled = false;
+        $("#drequirename").css("background-color", "");
+        $("#dnum").css("background-color", "");
+        $("#dconusername").css("background-color", "");
+        $("#dcontel").css("background-color", "");
+        $("#dtype").css("background-color", "");
         $("#ediv").show();
+        $("#back").hide();
+        $("#eback").show();
         $("#ebutton").hide();
     }
 
     function editOrder(){
         var postData = {
-            id:document.getElementById("eopenid").value,
-            conname:document.getElementById("econname").value,
-            contel:document.getElementById("econtel").value,
-            require:document.getElementById("erequirename").value,
-            num: document.getElementById("enum").value,
-            type:document.getElementById("etype").value
+        id:document.getElementById("did").value,
+        conusername:document.getElementById("dconusername").value,
+        phone:document.getElementById("dcontel").value,
+            require:document.getElementById("drequirename").value,
+            num: document.getElementById("dnum").value,
+            type:document.getElementById("dtype").value
         };
         $.ajax({
             type:"POST",
@@ -474,12 +486,12 @@
                 var length = data.length;
                 for(var i = 0;i<length;i++) {
                     var html = "<div style='width:100%;'>";
-                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onmousedown='del(this);' onclick='detail(this);'>";
+                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onclick='detail(this);'>";
                     html += "<div><span  id='lid' style='display:none;'>"+data[i].id+"</span>"
-                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].requirename+"</span></div><br>";
+                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].require+"</span></div><br>";
                     html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].requiretype+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].conphone+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].requiredate+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].createTime+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
                     html += "<br></div></div>";
                     $('#list').append(html);
                 }
@@ -487,18 +499,21 @@
         });
     }
 
-    function pushlist(){
+    function MyOrder(){
+    	
         $('#sub').removeClass("btn-primary").css("background","none");
         $('#push').removeClass("btn-default").css("background","#ee8919");
 //        $("#list").remove()
         $('#list>div').remove();
         var postData = {
+        	  openid:document.getElementById("openid").value
+        		      
 //            username:document.getElementById("ousername").value
-            username:"asd"
+           // username:"asd"
         };
         $.ajax({
             type: "POST",
-            url: "<%=basePath%>RequireOrderController/ShowMyPushOrder",
+            url: "<%=basePath%>RequireOrderController/ShowMyOrder",
             cache:false ,
             dataType:'json',
             data: postData,
@@ -507,12 +522,12 @@
                 var length = data.length;
                 for(var i = 0;i<length;i++) {
                     var html = "<div style='width:100%;'>";
-                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onmousedown='del(this);' onclick='detail(this);'>";
+                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onclick='detail(this);'>";
                     html += "<div><span  id='lid' style='display:none;'>"+data[i].id+"</span>"
-                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].requirename+"</span></div><br>";
-                    html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].requiretype+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].conphone+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].requiredate+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
+                    html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].require+"</span></div><br>";
+                    html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].type+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conusername+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].createTime+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
                     html += "<br></div></div>";
                     $('#list').append(html);
                 }
@@ -520,7 +535,30 @@
         });
     }
 
-    function sublist(){
+    function detail(obj){
+        $('#detail').show();
+        var id = $(obj).find('#lid').html();
+        var name = $(obj).find('#lname').html();
+        var num = $(obj).find('#lnum').html();
+        var type = $(obj).find('#ltype').html();
+        var conname = $(obj).find('#lconname').html();
+        var contel = $(obj).find('#lcontel').html();
+        var date = $(obj).find('#ldate').html();
+        var status = $(obj).find('#lstatus').html();
+
+   
+        $('#did').val(id);
+        $('#drequirename').val(name);
+        $('#dnum').val(num);
+        $("#dtype").val(type);
+        $('#dconusername').val(conname);
+        $('#dcontel').val(contel);
+      
+
+        $('#orderlist').hide();
+    }
+    
+    function OrderList(){
         $('#push').removeClass("btn-primary").css("background","none");
         $('#sub').removeClass("btn-default").css("background","#ee8919");
         $('#list>div').remove();

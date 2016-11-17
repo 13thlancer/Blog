@@ -50,8 +50,13 @@ public class ArticleServiceImpl implements ArticleServiceI{
 
 	@Override
 	public List<Article> showArticleZan(String openid) {
-		// TODO Auto-generated method stub
 		return articleMapper.showArticleZan(openid);
 	}
+	
+	@Override
+	public List<Article> showArticleByPtype(String ptype) {
+		return articleMapper.showArticleByPtype(ptype);
+	}
+
 
 }

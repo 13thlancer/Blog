@@ -16,4 +16,5 @@ public interface ArticleMapper {
 	
 	List<Article> showArticleZan(String openid);
 
+	List<Article> showArticleByPtype(String ptype);
 }

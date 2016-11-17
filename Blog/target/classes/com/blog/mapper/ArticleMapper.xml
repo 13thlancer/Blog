@@ -55,6 +55,14 @@
 		where a.messagetype = #{mtype,jdbcType= VARCHAR}
 	</select>
 	
+	<select id="showArticleByPtype" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select *
+		from t_pm_article a
+		left join t_messagetype m
+		on a.messagetype = m.num
+		where m.pnum = #{ptype,jdbcType= VARCHAR}
+	</select>
+	
 	<select id="showArticleZan" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select *
 		from t_pm_article a

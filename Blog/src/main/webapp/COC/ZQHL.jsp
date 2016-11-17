@@ -51,218 +51,22 @@
 		
 		<div class="bd">
 			<ul id="list1">
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img40.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img41.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img42.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img43.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img44.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
+				
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list2">
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img40.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>2 8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img41.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img42.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img43.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img44.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
+				
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list3">
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img40.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>3 8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img41.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img42.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img43.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img44.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
+				
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list4">
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img40.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>4 8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img41.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img42.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img43.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
-				<li>
-					<div class="img">
-						<img src="imgs/wz_img44.jpg"/>
-					</div>
-					<div class="txt">
-						<h4>8月22日，西安市公安局警方通报，</h4>
-						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
-						<span>2016-08-11</span>
-					</div>
-				</li>
+			
 			</ul>
 		</div>
 	</div>
@@ -285,15 +89,13 @@ function showArticle(){
 	
 	$.ajax({
 		type:"post",
-		url:"<%=basePath%>ArticleController/showArticle",
+		url:"<%=basePath%>ArticleController/showArticleByPtype",
 		dataType:"json",
+		data:{ptype:50},
 		error:function(){
 		},
 		success:function(data){
-			/* $("ul").children("li").remove();
-			var j= 1; */
-			/* var ul = "<ul class='slides' id='slide'></ul>"
-				$('#slider').append(ul) */
+		
 			for(i=0;i<data.length;i++){
 			var title = data[i].title;
 			var picpath = data[i].titlepicpath;
@@ -302,9 +104,10 @@ function showArticle(){
 			var time = data[i].createTime;
 			var id = data[i].articleid;
 			var num = data[i].mtype[0].num;
-				var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'> <h4>"+title+"</h4>"
-				html += "<div class='sub'><h5>"+type+"</h5><h6>"+time+"</h6></div></div></a></li>"
-				
+
+			var html = "<li><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
+			html += "<p>"+content.substring(0,40)+"</p><span>"+time+"</span></div></li>"
+	
 				if(num==51){
 					$('#list1').append(html);	
 				}else if(num==52){

@@ -3,6 +3,7 @@ package com.blog.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,27 +26,29 @@ public class RequireOrderController {
 	private RequireOrderServiceI requireOrderServiceI;
 	
 	@ResponseBody
-	@RequestMapping(value="ShowMyOrder",method=RequestMethod.POST)
-	public List<RequireOrder> ShowMyOrder(String openid){
-		return requireOrderServiceI.showMyOrder(openid);
+	@RequestMapping(value="ShowAllOrder",method=RequestMethod.POST)
+	public List<RequireOrder> ShowAllOrder(){
+		return requireOrderServiceI.showOrder();
 	}
 
 	@ResponseBody
 	@RequestMapping(value="AddOrder",method=RequestMethod.POST)
-	public void AddOrder(RequireOrder requireorder){
+	public String AddOrder(RequireOrder requireorder){
 		requireOrderServiceI.AddOrder(requireorder);
+		return "OK";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="UpdateOrder",method=RequestMethod.POST)
-	public void UpdateOrder(RequireOrder requireorder){
-		
+	public String UpdateOrder(RequireOrder requireorder){
+		requireOrderServiceI.UpdateOrder(requireorder);
+		return "OK";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="ShowMyPushOrder",method=RequestMethod.POST)
-	public void ShowMyPushOrder(String openid){
-		
+	@RequestMapping(value="ShowMyOrder",method=RequestMethod.POST)
+	public List<RequireOrder> ShowMyOrder(String openid){
+		return requireOrderServiceI.showMyOrder(openid);
 	}
 	
 //	@ResponseBody

@@ -40,6 +40,13 @@ public class ArticleController {
 	}
 
 	@ResponseBody
+	@RequestMapping(value="showArticleByPtype",method=RequestMethod.POST)
+	public List<Article> showArticleByPtype(String ptype){
+		return articleServiceI.showArticleByPtype(ptype);
+	}
+
+	
+	@ResponseBody
 	@RequestMapping(value="showLatestArticle",method=RequestMethod.POST)
 	public List<Article> showLatestArticle(){
 		return articleServiceI.showLatestArticle();

@@ -22,7 +22,7 @@
 
 
 </head>
-<body>
+<body onload='showArticle();'>
 <div class="layout bg_f0">
 	<div class="header">
 		<h4>政企互联</h4>
@@ -37,13 +37,13 @@
 				<li class="n1 selected">					
 					经济类
 				</li>
-				<li id="list2" class="n2">
+				<li class="n2">
 					招商引资
 				</li>
-				<li id="list3" class="n3">
+				<li class="n3">
 					组织活动
 				</li>
-				<li id="list4" class="n4">
+				<li class="n4">
 					项目合作
 				</li>
 			</ul>
@@ -51,7 +51,7 @@
 		
 		<div class="bd">
 			<ul id="list1">
-				<li>
+				<!-- <li>
 					<div class="img">
 						<img src="imgs/wz_img40.jpg"/>
 					</div>
@@ -100,12 +100,12 @@
 						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
 						<span>2016-08-11</span>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list2">
-				<li>
+				<!-- <li>
 					<div class="img">
 						<img src="imgs/wz_img40.jpg"/>
 					</div>
@@ -154,12 +154,12 @@
 						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
 						<span>2016-08-11</span>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list3">
-				<li>
+				<!-- <li>
 					<div class="img">
 						<img src="imgs/wz_img40.jpg"/>
 					</div>
@@ -208,7 +208,7 @@
 						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
 						<span>2016-08-11</span>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="bd" style="display: none;">
@@ -262,15 +262,10 @@
 						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
 						<span>2016-08-11</span>
 					</div>
-				</li>
+				</li> 
 			</ul>
 		</div>
 	</div>
-	
-	
-	
-	
-	
 	
 </div><!--loyout结束-->
 
@@ -285,8 +280,9 @@ function showArticle(){
 	
 	$.ajax({
 		type:"post",
-		url:"<%=basePath%>ArticleController/showArticle",
+		url:"<%=basePath%>ArticleController/showArticleByPtype",
 		dataType:"json",
+		data:{ptype:40},
 		error:function(){
 		},
 		success:function(data){
@@ -302,9 +298,13 @@ function showArticle(){
 			var time = data[i].createTime;
 			var id = data[i].articleid;
 			var num = data[i].mtype[0].num;
-				var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'> <h4>"+title+"</h4>"
-				html += "<div class='sub'><h5>"+type+"</h5><h6>"+time+"</h6></div></div></a></li>"
+			
+			/* 	var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'> <h4>"+title+"</h4>"
+				html += "<div class='sub'><h5>"+type+"</h5><h6>"+time+"</h6></div></div></a></li>" */
 				
+				var html = "<li><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
+				html += "<p>"+content.substring(0,40)+"</p><span>"+time+"</span></div></li>"
+		
 				if(num==41){
 					$('#list1').append(html);	
 				}else if(num==42){

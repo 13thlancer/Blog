@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.mapper.RequireOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.entity.RequireOrder" >
+  		<id column="id" property="id" jdbcType="VARCHAR" />  	
+  		<result column="userid" property="userid" jdbcType="VARCHAR" />
+  		<result column="conname" property="conusername" jdbcType="VARCHAR" />
+	    <result column="username" property="username" jdbcType="VARCHAR" />
+	    <result column="conphone" property="phone" jdbcType="VARCHAR" />
+	    <result column="num" property="num" jdbcType="VARCHAR" />
+	    <result column="requirename" property="require" jdbcType="VARCHAR" />
+	    <result column="requiredate" property="CreateTime" jdbcType="TIMESTAMP" />
+	    <result column="requiretype" property="type" jdbcType="VARCHAR" />
+	    <result column="requirestatus" property="requirestatus" jdbcType="VARCHAR" />
+  </resultMap>
+
+    <sql id="showOrder">
+        id,userid,username,conname,conphone,requirename,requiredate,requiretype,num,requirestatus
+    </sql>
+    
+    <select id="selectByUser" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="showOrder" />
+    from trequireorder
+    where userid = #{userid,jdbcType=VARCHAR}
+</select>
+
+    
+
+    <select id="selectByStatus" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="showOrder" />
+        from trequireorder
+        where username = #{username,jdbcType=VARCHAR} and requirestatus = "已推送"
+    </select>
+
+    <select id="selectByType" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="showOrder" />
+        from trequireorder
+        where requiretype = #{type,jdbcType=VARCHAR} and requirestatus = "已推送"
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="showOrder" />
+        from trequireorder where requirestatus = "已推送"
+    </select>
+
+    <insert id="insert" parameterType="com.blog.entity.RequireOrder">
+        insert into trequireorder (id, userid, username, conname,conphone, num, requirename, requiredate, requiretype, requirestatus)
+        values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{conusername,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+        #{num,jdbcType=VARCHAR}, #{require,jdbcType=VARCHAR}, #{CreateTime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR},#{requirestatus,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateStatus" parameterType="com.blog.entity.RequireOrder">
+        update trequireorder set requirestatus = "已推送"
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE from trequireorder WHERE id = #{id,jdbcType=VARCHAR}
+    </delete>
+
+    <update id="updateById" parameterType="com.blog.entity.RequireOrder">
+        update trequireorder set conname = #{conusername,jdbcType=VARCHAR},conphone = #{phone,jdbcType=VARCHAR}, requirename = #{require,jdbcType=VARCHAR}, num = #{num,jdbcType=VARCHAR},requiretype=#{type,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+
+</mapper>
