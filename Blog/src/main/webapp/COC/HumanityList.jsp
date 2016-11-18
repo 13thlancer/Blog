@@ -104,9 +104,15 @@ function showArticle(){
 			document.getElementById("tname").innerHTML  = data[0].mtype[0].name;
 
 			for(i=0;i<data.length;i++){
+				
+				
 			var title = data[i].title;
+			if(title.length>20){
+				title = ""+title.substr(0, 20)+"....";
+			}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content.substr(0, 50);
+			
 			var type = data[i].mtype[0].name;
 			var time = data[i].createTime;
 			var id = data[i].articleid;
@@ -114,8 +120,8 @@ function showArticle(){
 			var reactorid = data[i].react[0].reactorid;
 			
 			var html ="<li><div class='bd'><div class='img'><img src='"+picpath+"'/></div><div onclick=location.href='Detail.jsp?id="+id+"' class='txt'>"
-			html +="<h4>"+title+"</h4><p>"+content+"</p></div></div><div class='ft'><div class='l'>"
-			html +="<div class='tx'><h6>"+ time+"</h6></div></div>"
+			html +="<h4>"+title+"</h4></div></div><div class='ft'><div class='l'>"
+			html +="<div class='tx'><h5>"+ time+"</h5></div></div>"
 			html +="<div class='r'><dl><dt id="+id+" onclick=\"zan('"+id+"')\"><span id='s"+id+"' style='margin-left:5px;'>"+ReplyCount(id)[1]+"</span></dt><dd onclick=location.href='Reply.jsp?id="+id+"'>"+ReplyCount(id)[0]+"</dd></dl></div></div></li>"									
 			
 			$('#list').append(html);

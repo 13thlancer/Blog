@@ -128,7 +128,7 @@ function showLawyer(){
 			var id = data[i].lawyerid;
 			
 			var html = "<li><div class='hd'><div class='avatar'><img src='"+picpath+"'/></div><div class='txt'><h4>"+lawyername+"律师</h4><h5>咨询手机："+telphone+"</h5></div></div>"
-		    html += "<div class='bd'>"+introduce+"</div><div class='ft'><a href='ZXZX.jsp' class='btn'>在线咨询</a><a href='#' class='btn'>详细介绍</a><a href='#' class='btn btn2'>关注</a></div></li>"
+		    html += "<div class='bd'>"+introduce+"</div></li>"
 			$('#list').append(html);						
 			}
 		}

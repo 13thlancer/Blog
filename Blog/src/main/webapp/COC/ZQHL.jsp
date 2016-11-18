@@ -98,6 +98,9 @@ function showArticle(){
 		
 			for(i=0;i<data.length;i++){
 			var title = data[i].title;
+			if(title.length>20){
+				title = ""+title.substr(0, 20)+"....";
+			}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content;
 			var type = data[i].mtype[0].name;
@@ -105,8 +108,8 @@ function showArticle(){
 			var id = data[i].articleid;
 			var num = data[i].mtype[0].num;
 
-			var html = "<li><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
-			html += "<p>"+content.substring(0,40)+"</p><span>"+time+"</span></div></li>"
+			var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
+			html += "<span>"+time+"</span></div></a></li>"
 	
 				if(num==51){
 					$('#list1').append(html);	

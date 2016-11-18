@@ -27,7 +27,7 @@
 <div class="layout">
 	<div class="header">
 		<h4>评论</h4>
-		<div class="return">
+		<div class="return"  onclick="history.go(-1)">
 			
 		</div>
 	</div>

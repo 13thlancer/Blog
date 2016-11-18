@@ -34,7 +34,7 @@
 		<div class="hd">
 			<ul>
 				<li class="n1 selected">会员目录</li>
-				<li class="n2">行业专场</li>
+				<li class="n2" onclick=location.href=>行业专场</li>
 			</ul>
 		</div>
 		<div class="bd">

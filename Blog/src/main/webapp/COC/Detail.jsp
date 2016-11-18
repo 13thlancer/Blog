@@ -24,7 +24,7 @@ String phone=(String)s.getAttribute("phone");
 
  
 </head>
-<body style="margin:0px;padding:0px;" onload="showDetail()">
+<body style="margin:0px;padding:0px;padding-bottom: 35px; " onload="showDetail()">
 <div class="layout">
 	<div class="header">
 		<h4>湖南商会</h4>
@@ -36,9 +36,11 @@ String phone=(String)s.getAttribute("phone");
 	   <div  style=" text-align:center;vertical-align:middle;">
         <label id="title" style="width:80%;color:#000000;font-size:20px;"></label>
     </div>
-     <div  style="margin-left:10%;">
-        <label id="date" style="font-size:5px;width:80%;color:#b9b9b9;"></label>
+    <br>
+     <div  style="margin-left:1%;">
+        <label id="date" style="font-size:15px;width:80%;color:#b9b9b9;"></label>
     </div>
+       <br>
     <div  style="width:95%;margin-left:auto;margin-right:auto;"id="content" style="width:100%;color:#000000;font-size:10px;">
        
     </div>
@@ -100,13 +102,13 @@ String phone=(String)s.getAttribute("phone");
 		success:function(data){
 			var articleid = data.articleid;
  			document.getElementById("title").innerText=data.title;
-			document.getElementById("date").innerText=data.createtime;
+			document.getElementById("date").innerText=data.createTime;
 			document.getElementById("content").innerHTML=data.content;
 			var count = data.commentcount;
 			var zancount = data.zancount;
 			var reacttype = data.react[0].reacttype;
 			var reactorid = data.react[0].reactorid;
-			var html = "<input id='input' type='text' style='height:23px;margin-top:6px;margin-left:20px;width:50%;' onclick='showComment();'>"
+			var html = "<input id='input' type='text' style='height:23px;margin-top:6px;margin-left:20px;width:50%;' placeholder='来评论吧' onclick='showComment();'>"
 			html += "<a style='position:relative;left:20px' href='Reply.jsp?id="+articleid+"'><img style='position:relative;top:9px;' src='imgs/wz_53.png' />"+count+"</a>"
 			html +="<a style='position:relative;left:50px' href='javascript:void(0)' onclick=\"zan('"+articleid+"')\"><img id='"+articleid+"' style='position:relative;top:5px;' src='imgs/wz_52.png'/><span id='s"+articleid+"' >"+zancount+"</span></a>"
 			$('#footer').append(html);

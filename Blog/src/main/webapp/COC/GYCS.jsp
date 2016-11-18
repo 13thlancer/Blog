@@ -24,7 +24,7 @@
 <body onload="showArticle()">
 <div class="layout">
 	<div class="header">
-		<h4>公益慈善</h4>
+		<h4 id="tname"></h4>
 		<div class="return" onclick="history.go(-1)">
 			
 		</div>
@@ -91,24 +91,34 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/jquery.glide.js"></script>
 <script type="text/javascript">
+var reg = new RegExp("(^|&)mtype=([^&]*)(&|$)","i");
+var r = window.location.search.substr(1).match(reg);
+
 function showArticle(){
+	  var postdata={mtype:r[2]}
 	$.ajax({
 		type:"post",
 		url:"<%=basePath%>ArticleController/showArticleBytype",
-		data:{mtype:"81"},
 		dataType:"json",
+		data:postdata,
 		error:function(){
 		},
 		success:function(data){
+			document.getElementById("tname").innerHTML  = data[0].mtype[0].name;
+
 			for(i=0;i<data.length;i++){
+				
 			var title = data[i].title;
+				if(title.length>20){
+					title = ""+title.substr(0, 20)+"....";
+				}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content.substr(0, 50);
 			var type = data[i].type;
 			var time = data[i].createtime;
 			var id = data[i].articleid;
 			
-			var html = "<li><div class='txt' onclick=location.href='Detail.jsp?id="+id+"'><h4>"+title+"</h4><p>"+content+"</p><em></em></div>"
+			var html = "<li><div class='txt' onclick=location.href='Detail.jsp?id="+id+"'><h4>"+title+"</h4><p></p><h5></h5><em></em></div>"
 			html += "<div class='sub'><dl><dd onclick=location.href='Reply.jsp?id="+id+"'>"+ReplyCount(id)+"</dd></dl></div></li>"
 		    						
 			$('#list').append(html);						

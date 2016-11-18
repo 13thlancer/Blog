@@ -37,11 +37,11 @@
 					<h4>组织架构</h4>
 					<em></em>
 				</li>
-				<li class="n2">
+				<li style="display:none;" class="n2">
 					<h4>重要群组</h4>
 					<em></em>
 				</li>
-				<li class="n3">
+				<li style="display:none;" class="n3">
 					<h4>常用联系人</h4>
 					<em></em>
 				</li>

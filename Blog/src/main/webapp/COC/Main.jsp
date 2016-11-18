@@ -148,7 +148,8 @@
 	<div class="footer">
 		<ul>
 			<li>
-			<a href="ZZDLL.jsp">
+			<!-- <a href="ZZDLL.jsp"> -->
+			<a href="OrgList.jsp">
 				<img src="imgs/wz_9.png"/>
 				<h4>组织的力量</h4>
 			</a>
@@ -166,7 +167,7 @@
 			</a>
 			</li>
 			<li>
-			<a href="MyInfo.jsp">
+			<a href="HumanityList.jsp?mtype=31">
 				<img src="imgs/wz_12.png"/>
 				<h4>品牌宣传</h4>
 			</a>
@@ -201,6 +202,9 @@ function showSlide(){
 				$('#slider').append(ul)
 			for(i=0;i<4;i++){
 			var title = data[i].title;
+			if(title.length>20){
+				title = ""+title.substr(0, 20)+"....";
+			}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content;
 			var type = data[i].mtype[0].name;
@@ -208,7 +212,7 @@ function showSlide(){
 			var id = data[i].articleid;
 	
 			
-				var slid = "<li class='slide'><a href='Detail.jsp?id="+id+"''><img src='imgs/wz_img10.jpg' /><div class='txt'><h4>"+title+"</h4></div></a></li>"
+				var slid = "<li class='slide'><a href='Detail.jsp?id="+id+"''><img src='"+picpath+"' /><div class='txt'><h4>"+title+"</h4></div></a></li>"
 				$('#slide').append(slid); 
 			}
 			
@@ -275,6 +279,9 @@ function showArticle(){
 				$('#slider').append(ul) */
 			for(i=0;i<data.length;i++){
 			var title = data[i].title;
+			if(title.length>20){
+				title = ""+title.substr(0, 20)+"....";
+			}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content;
 			var type = data[i].mtype[0].name;

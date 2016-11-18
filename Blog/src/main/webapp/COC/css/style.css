@@ -262,7 +262,7 @@ img{
 	border-radius: 4px;
 }
 .charity .body li .txt{
-	padding: 0 22.5px; position: relative;
+	padding: 0 22.5px; position: relative;overflow:hidden;
 }
 .charity .body li .txt em{
 	width: 22.5px; height: 22.5px; position: absolute;

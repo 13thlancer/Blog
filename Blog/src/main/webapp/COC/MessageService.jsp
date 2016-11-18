@@ -15,7 +15,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="">
 <meta name="format-detection" content="telephone=no">
-<title>政企互联</title>
+<title>信息服务</title>
 <link rel="stylesheet" href="css/slicy.css">
 <link rel="stylesheet" href="css/glide.css">
 <link rel="stylesheet" href="css/style.css">
@@ -213,7 +213,7 @@
 		</div>
 		<div class="bd" style="display: none;">
 			<ul id="list4">
-				<li>
+				<!-- <li>
 					<div class="img">
 						<img src="imgs/wz_img40.jpg"/>
 					</div>
@@ -262,7 +262,7 @@
 						<p>西安破获近年最大制造假币案两清涧男子网上案两清涧男子上涧男子网上案两清......</p>
 						<span>2016-08-11</span>
 					</div>
-				</li> 
+				</li>  -->
 			</ul>
 		</div>
 	</div>
@@ -292,6 +292,9 @@ function showArticle(){
 				$('#slider').append(ul) */
 			for(i=0;i<data.length;i++){
 			var title = data[i].title;
+			if(title.length>20){
+				title = ""+title.substr(0, 20)+"....";
+			}
 			var picpath = data[i].titlepicpath;
 			var content = data[i].content;
 			var type = data[i].mtype[0].name;
@@ -302,8 +305,8 @@ function showArticle(){
 			/* 	var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'> <h4>"+title+"</h4>"
 				html += "<div class='sub'><h5>"+type+"</h5><h6>"+time+"</h6></div></div></a></li>" */
 				
-				var html = "<li><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
-				html += "<p>"+content.substring(0,40)+"</p><span>"+time+"</span></div></li>"
+				var html = "<li><a href='Detail.jsp?id="+id+"'><div class='img'><img src='"+picpath+"'/></div><div class='txt'><h4>"+title+"</h4>"
+				html += "<span>"+time+"</span></div></a></li>"
 		
 				if(num==41){
 					$('#list1').append(html);	

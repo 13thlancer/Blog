@@ -283,6 +283,7 @@
                                             <option value="学习用品">学习用品</option>
                                             <option value="生活用品">生活用品</option>
                                             <option value="建筑材料">建筑材料</option>
+                                            <option value="其它">其它</option>
                                         </select>
                                     </div>
                                 </div>
@@ -339,11 +340,11 @@
                 var length = data.length;
                 for(var i = 0;i<length;i++) {
                     var html = "<div style='width:100%;'>";
-                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' onclick='detail(this);'>";
+                    html += "<br><div style='border-style:groove;border-radius:10px;background-color: #ffffff;' >";
                     html += "<div><span  id='lid' style='display:none;'>"+data[i].id+"</span>"
                     html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].require+"</span></div><br>";
                     html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].type+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conusername+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
                     html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].createTime+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
                     html += "<br></div></div>";
                     $('#list').append(html);
@@ -490,7 +491,7 @@
                     html += "<div><span  id='lid' style='display:none;'>"+data[i].id+"</span>"
                     html += "<div><span style='font-weight: bold;margin-left: 5%;'>需求内容：</span><span id='lname' style='font-weight: bold;'>"+data[i].require+"</span></div><br>";
                     html += "<div><span style='margin-left: 5%;'>数量：</span><span id='lnum'>"+data[i].num+"</span><span style='margin-left: 20%;'>需求类型：</span><span id='ltype'>"+data[i].requiretype+"</span></div>";
-                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conname+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
+                    html += "<div><span style='margin-left: 5%;'>联系人：</span><span id='lconname'>"+data[i].conusername+"</span><span style='margin-left: 15%;'>联系方式：</span><span id='lcontel'>"+data[i].phone+"</span></div>";
                     html += "<div><span style='margin-left: 5%;'>日期：</span><span id='ldate'>"+data[i].createTime+"</span><span style='margin-left: 15%;' id='lstatus'>"+data[i].requirestatus+"</span></div>";
                     html += "<br></div></div>";
                     $('#list').append(html);
